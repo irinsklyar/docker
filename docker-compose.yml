@@ -1,0 +1,23 @@
+version: '2'
+services:
+  weatherrest:
+    build: .
+    container_name: karaf
+    ports:
+        - "8181:8181"
+    restart: always
+
+  cassandra:
+    hostname: cassandra
+    image: cassandra:latest
+    ports:
+        - "7000:7000"
+        - "7001:7001"
+        - "7199:7199"
+        - "9042:9042"
+    expose:
+      - 7000
+      - 7001
+      - 7199
+      - 9042
+
